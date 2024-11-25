@@ -1,7 +1,7 @@
 import type { Future, Option, Result } from "@swan-io/boxed";
-import type { Onboarding } from "./finalizeOnboardingTypes";
 import type { Context } from "../shared/context";
 import type { TechnicalError } from "../shared/errors";
+import type { Onboarding } from "./finalizeOnboardingTypes";
 
 export declare function findById(
   onboardingId: string,

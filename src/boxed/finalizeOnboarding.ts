@@ -1,4 +1,19 @@
+import {
+  createAccountHolderByIdentityAndProject,
+  findAccountHolderByIdentityAndProject,
+} from "#app/boxed/accountHolderRepository.ts";
+import { createAccountMembership } from "#app/boxed/accountMembershipRepository.ts";
+import { generateAccountNumber } from "#app/boxed/accountNumber.ts";
+import {
+  createAndPersistAccount,
+  createIban,
+} from "#app/boxed/accountService.ts";
+import {
+  getActiveProjectTcus,
+  type SwanTCUDocument,
+} from "#app/boxed/tcuRepository.ts";
 import { Future, Option, Result } from "@swan-io/boxed";
+import { match, P } from "ts-pattern";
 import type { Context } from "../shared/context";
 import {
   OnboardingAlreadyFinalizedError,
@@ -11,21 +26,6 @@ import type {
   Onboarding,
 } from "./finalizeOnboardingTypes";
 import { findById, saveOnboarding } from "./onboardingRepository";
-import { match, P } from "ts-pattern";
-import {
-  getActiveProjectTcus,
-  type SwanTCUDocument,
-} from "#app/boxed/tcuRepository.ts";
-import {
-  createAccountHolderByIdentityAndProject,
-  findAccountHolderByIdentityAndProject,
-} from "#app/boxed/accountHolderRepository.ts";
-import { generateAccountNumber } from "#app/boxed/accountNumber.ts";
-import {
-  createAndPersistAccount,
-  createIban,
-} from "#app/boxed/accountService.ts";
-import { createAccountMembership } from "#app/boxed/accountMembershipRepository.ts";
 
 export const finalizeOnboarding = (
   { identity, onboardingId }: FinalizeOnboardingInput,
