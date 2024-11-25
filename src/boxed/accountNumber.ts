@@ -6,5 +6,5 @@ export type IbanType = "Main" | "Virtual";
 
 export declare function generateAccountNumber(
   ibanType: IbanType,
-  country: AccountCountry
+  country: AccountCountry,
 ): Future<Result<string, TechnicalError>>;

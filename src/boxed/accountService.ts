@@ -21,7 +21,7 @@ export declare function createAndPersistAccount(
   onboarding: Onboarding,
   accountHolder: AccountHolder,
   accountNumber: string,
-  maybeTcuDocument: Option<SwanTCUDocument>
+  maybeTcuDocument: Option<SwanTCUDocument>,
 ): Future<
   Result<
     Account,

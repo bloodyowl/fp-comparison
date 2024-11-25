@@ -29,7 +29,7 @@ import { createAccountMembership } from "#app/boxed/accountMembershipRepository.
 
 export const finalizeOnboarding = (
   { identity, onboardingId }: FinalizeOnboardingInput,
-  context: Context
+  context: Context,
 ) => {
   const onboarding = getValidOnboarding(onboardingId, context);
 
@@ -37,8 +37,8 @@ export const finalizeOnboarding = (
     getActiveProjectTcus(
       onboarding.projectId,
       onboarding.accountCountry,
-      onboarding.language.getOr("en")
-    )
+      onboarding.language.getOr("en"),
+    ),
   );
 
   const account = Future.allFromDict({ onboarding, projectTcus })
@@ -46,17 +46,17 @@ export const finalizeOnboarding = (
       onboarding.map((onboarding) => ({
         onboarding,
         projectTcus: projectTcus.toOption(),
-      }))
+      })),
     )
     .flatMapOk(({ onboarding, projectTcus }) =>
-      openAccount({ onboarding, projectTcus, identity }, context)
+      openAccount({ onboarding, projectTcus, identity }, context),
     );
 
   const legalRepresentativeMembership = account.flatMapOk((account) =>
     createLegalRepresentativeMembership({
       accountId: account.id,
       userId: context.userId,
-    })
+    }),
   );
 
   return Future.allFromDict({
@@ -71,8 +71,8 @@ export const finalizeOnboarding = (
           ...onboarding,
           finalizedAt: Option.Some(new Date()),
         },
-        context
-      )
+        context,
+      ),
     );
 };
 
@@ -80,19 +80,19 @@ const getValidOnboarding = (onboardingId: string, context: Context) => {
   return findById(onboardingId, context).mapOkToResult((onboarding) =>
     match(onboarding)
       .with(Option.P.None, () =>
-        Result.Error(new OnboardingNotFoundError(onboardingId))
+        Result.Error(new OnboardingNotFoundError(onboardingId)),
       )
       .with(Option.P.Some({ statusInfo: { status: "Finalized" } }), () =>
-        Result.Error(new OnboardingAlreadyFinalizedError(onboardingId))
+        Result.Error(new OnboardingAlreadyFinalizedError(onboardingId)),
       )
       .with(Option.P.Some({ statusInfo: { status: "Invalid" } }), () =>
-        Result.Error(new OnboardingInvalidError(onboardingId))
+        Result.Error(new OnboardingInvalidError(onboardingId)),
       )
       .with(
         Option.P.Some(P.select({ statusInfo: { status: "Valid" } })),
-        (onboarding) => Result.Ok(onboarding)
+        (onboarding) => Result.Ok(onboarding),
       )
-      .exhaustive()
+      .exhaustive(),
   );
 };
 
@@ -106,16 +106,16 @@ const openAccount = (
     identity: Identity;
     projectTcus: Option<SwanTCUDocument>;
   },
-  context: Context
+  context: Context,
 ) => {
   const accountHolder = getOrCreateAccountHolder(
     { onboarding, identity },
-    context
+    context,
   );
 
   const accountNumber = generateAccountNumber(
     "Main",
-    onboarding.accountCountry
+    onboarding.accountCountry,
   );
 
   const account = Future.allFromDict({ accountHolder, accountNumber })
@@ -125,8 +125,8 @@ const openAccount = (
         onboarding,
         accountHolder,
         accountNumber,
-        projectTcus
-      )
+        projectTcus,
+      ),
     );
 
   const ibanEntry = account.flatMapOk((account) =>
@@ -136,7 +136,7 @@ const openAccount = (
       country: account.country,
       projectId: account.projectId,
       type: "Main",
-    })
+    }),
   );
 
   return Future.allFromDict({ account, ibanEntry })
@@ -152,7 +152,7 @@ const getOrCreateAccountHolder = (
     onboarding: Onboarding & { statusInfo: { status: "Valid" } };
     identity: Identity;
   },
-  context: Context
+  context: Context,
 ) => {
   return (
     match(onboarding)
@@ -161,7 +161,7 @@ const getOrCreateAccountHolder = (
         return findAccountHolderByIdentityAndProject(
           identity.identityId,
           onboarding.projectId,
-          context
+          context,
         ).flatMapOk((accountHolder) => {
           if (accountHolder.isSome()) {
             return Future.value(Result.Ok(accountHolder.get()));
@@ -169,7 +169,7 @@ const getOrCreateAccountHolder = (
           return createAccountHolderByIdentityAndProject(
             identity.identityId,
             onboarding.projectId,
-            context
+            context,
           );
         });
       })
@@ -178,7 +178,7 @@ const getOrCreateAccountHolder = (
         return createAccountHolderByIdentityAndProject(
           identity.identityId,
           onboarding.projectId,
-          context
+          context,
         );
       })
       .exhaustive()

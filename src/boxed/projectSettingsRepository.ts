@@ -9,5 +9,5 @@ export type ProjectSettings = {
 };
 
 export declare function findProjectSettings(
-  projectId: string
+  projectId: string,
 ): Future<Result<Option<ProjectSettings>, TechnicalError>>;

@@ -9,11 +9,11 @@ export type AccountHolder = {
 export declare function findAccountHolderByIdentityAndProject(
   identityId: string,
   projectId: string,
-  context: Context
+  context: Context,
 ): Future<Result<Option<AccountHolder>, TechnicalError>>;
 
 export declare function createAccountHolderByIdentityAndProject(
   identityId: string,
   projectId: string,
-  context: Context
+  context: Context,
 ): Future<Result<AccountHolder, TechnicalError>>;

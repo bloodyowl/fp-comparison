@@ -25,7 +25,7 @@ export type SwanTCUDocument = {
 export declare function getActiveProjectTcus(
   projectId: string,
   accountCountry: string,
-  language: string
+  language: string,
 ): Future<
   Result<SwanTCUDocument, TechnicalError | ActiveTCUDocumentNotFoundError>
 >;

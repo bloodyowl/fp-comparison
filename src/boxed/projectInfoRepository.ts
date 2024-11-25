@@ -4,5 +4,5 @@ import type { ProjectInfo } from "./finalizeOnboardingTypes";
 
 export declare function findProjectInfo(
   projectId: string,
-  language: Option<string>
+  language: Option<string>,
 ): Future<Result<ProjectInfo, TechnicalError>>;

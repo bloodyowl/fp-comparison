@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "format": "prettier '**/*' -u -w"
+  },
   "imports": {
     "#app/*": "./src/*",
     "#types/*": "./types/*"
@@ -15,6 +18,7 @@
     "@swan-io/boxed": "^3.1.2",
     "effect": "^3.10.16",
     "fp-ts": "^2.16.9",
+    "prettier": "^3.3.3",
     "ts-pattern": "^5.5.0"
   }
 }

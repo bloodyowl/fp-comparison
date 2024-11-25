@@ -5,10 +5,10 @@ import type { TechnicalError } from "../shared/errors";
 
 export declare function findById(
   onboardingId: string,
-  context: Context
+  context: Context,
 ): Future<Result<Option<Onboarding>, TechnicalError>>;
 
 export declare function saveOnboarding(
   onboarding: Onboarding,
-  context: Context
+  context: Context,
 ): Future<Result<Onboarding, TechnicalError>>;

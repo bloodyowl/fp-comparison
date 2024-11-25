@@ -36,5 +36,5 @@ export type AccountMembership = {
 };
 
 export declare function createAccountMembership(
-  accountMembership: AccountMembership
+  accountMembership: AccountMembership,
 ): Future<Result<AccountMembership, TechnicalError>>;
