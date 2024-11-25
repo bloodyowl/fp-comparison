@@ -1,0 +1,38 @@
+{
+  "include": ["scripts", "src", "tests"],
+  "imports": {
+    "#app/*": "./src/*",
+    "#types/*": "./types/*"
+  },
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ESNext"],
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": ".",
+    "resolvePackageJsonImports": true,
+    "typeRoots": ["#types", "node_modules/@types"],
+
+    "allowImportingTsExtensions": true,
+
+    "allowJs": false,
+    "strict": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "esModuleInterop": true,
+
+    "declaration": false,
+    "noEmitOnError": true,
+    "pretty": true,
+    "sourceMap": true,
+
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
