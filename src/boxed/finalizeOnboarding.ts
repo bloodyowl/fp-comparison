@@ -12,14 +12,14 @@ import {
   getActiveProjectTcus,
   type SwanTCUDocument,
 } from "#app/boxed/tcuRepository.ts";
-import { Future, Option, Result } from "@swan-io/boxed";
-import { match, P } from "ts-pattern";
-import type { Context } from "../shared/context";
+import type { Context } from "#app/shared/context.ts";
 import {
   OnboardingAlreadyFinalizedError,
   OnboardingInvalidError,
   OnboardingNotFoundError,
-} from "../shared/errors";
+} from "#app/shared/errors.ts";
+import { Future, Option, Result } from "@swan-io/boxed";
+import { match, P } from "ts-pattern";
 import type {
   FinalizeOnboardingInput,
   Identity,

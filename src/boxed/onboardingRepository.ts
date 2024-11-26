@@ -1,6 +1,6 @@
+import type { Context } from "#app/shared/context.ts";
+import type { TechnicalError } from "#app/shared/errors.ts";
 import type { Future, Option, Result } from "@swan-io/boxed";
-import type { Context } from "../shared/context";
-import type { TechnicalError } from "../shared/errors";
 import type { Onboarding } from "./finalizeOnboardingTypes";
 
 export declare function findById(

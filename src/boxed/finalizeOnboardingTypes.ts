@@ -1,5 +1,4 @@
-import type { Option } from "@swan-io/boxed";
-import type { BaseValidationError } from "../shared/errors";
+import type { BaseValidationError } from "#app/shared/errors.ts";
 import type {
   AccountCountry,
   BusinessActivity,
@@ -9,7 +8,8 @@ import type {
   OnboardingScope,
   OnboardingStatus,
   VerificationFlow,
-} from "../shared/onboarding";
+} from "#app/shared/onboarding.ts";
+import type { Option } from "@swan-io/boxed";
 
 export type IdentificationLevel = "Expert" | "QES" | "PVID";
 
