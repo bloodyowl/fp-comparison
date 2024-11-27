@@ -9,7 +9,7 @@ import type {
   OnboardingStatus,
   VerificationFlow,
 } from "#app/shared/onboarding.ts";
-import type { Option } from "@swan-io/boxed";
+import type { Option } from "fp-ts/Option";
 
 export type IdentificationLevel = "Expert" | "QES" | "PVID";
 
