@@ -8,6 +8,12 @@ import {
   createAndPersistAccount,
   createIban,
 } from "#app/boxed/accountService.ts";
+import type {
+  FinalizeOnboardingInput,
+  Identity,
+  Onboarding,
+} from "#app/boxed/finalizeOnboardingTypes.ts";
+import { findById, saveOnboarding } from "#app/boxed/onboardingRepository.ts";
 import {
   getActiveProjectTcus,
   type SwanTCUDocument,
@@ -20,12 +26,6 @@ import {
 } from "#app/shared/errors.ts";
 import { Future, Option, Result } from "@swan-io/boxed";
 import { match, P } from "ts-pattern";
-import type {
-  FinalizeOnboardingInput,
-  Identity,
-  Onboarding,
-} from "./finalizeOnboardingTypes";
-import { findById, saveOnboarding } from "./onboardingRepository";
 
 const getValidOnboarding = (onboardingId: string, context: Context) => {
   return findById(onboardingId, context).mapOkToResult((onboarding) =>
