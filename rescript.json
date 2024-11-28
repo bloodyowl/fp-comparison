@@ -1,0 +1,14 @@
+{
+  "name": "swan-library-comparison",
+  "sources": {
+    "dir": "src/rescript"
+  },
+  "package-specs": {
+    "in-source": true,
+    "module": "esmodule"
+  },
+  "uncurried": true,
+  "suffix": ".mjs",
+  "bs-dependencies": ["@rescript/core", "rescript-future"],
+  "bsc-flags": ["-open RescriptCore"]
+}

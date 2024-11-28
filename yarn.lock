@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@rescript/core@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@rescript/core/-/core-1.6.1.tgz#159670c94d64a2b8236f46be2bf09a007b1ece08"
+  integrity sha512-vyb5k90ck+65Fgui+5vCja/mUfzKaK3kOPT4Z6aAJdHLH1eljEi1zKhXroCiCtpNLSWp8k4ulh1bdB5WS0hvqA==
+
 "@swan-io/boxed@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@swan-io/boxed/-/boxed-3.1.2.tgz#268f6b6f45268d6bc8eb14d154860d7e4e0f305b"
@@ -47,6 +52,16 @@ pure-rand@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-6.1.0.tgz#d173cf23258231976ccbdb05247c9787957604f2"
   integrity sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==
+
+rescript-future@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/rescript-future/-/rescript-future-2.1.0.tgz#a26b5169b9db53e0b897bb6529d7ec7bdd56bafd"
+  integrity sha512-WUgneUX0ikoavBmfhoBluGIlDuCfn5pKXBECTKpNknfBYKbSvQUzdXPbqViHhK8kTfJwGTicMpZJGf+RyiwfNw==
+
+rescript@^11.1.4:
+  version "11.1.4"
+  resolved "https://registry.yarnpkg.com/rescript/-/rescript-11.1.4.tgz#9a42ebc4fc5363707e39cef5b3188160b63bee42"
+  integrity sha512-0bGU0bocihjSC6MsE3TMjHjY0EUpchyrREquLS8VsZ3ohSMD+VHUEwimEfB3kpBI1vYkw3UFZ3WD8R28guz/Vw==
 
 ts-pattern@^5.5.0:
   version "5.5.0"
